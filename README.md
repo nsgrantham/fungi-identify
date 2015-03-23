@@ -23,7 +23,7 @@ To set up one's working environment, run `set-workspace.R`. This file loads pert
 
 Produce taxon-specific "hot spot" maps via kernel smoothing using `plot-occurrence.R`.
 
-<img src="figs/occurrence/OTU_232.png" alt="Fungal OTU 232" style="width: 500px;"/>
+<img src="figs/OTU_232.png" alt="Fungal OTU 232" style="width: 500px;"/>
 
 ## Demonstrate the model
 
@@ -31,7 +31,7 @@ Produce taxon-specific "hot spot" maps via kernel smoothing using `plot-occurren
 
 __Note:__ The purpose of this file is to demonstrate the steps behind our predictions in a computationally feasible manner. Unsurprisingly, the predictions produced by operating on the full data in `cross-validate.R` are much better than those produced here.
 
-<img src="figs/predictions/881.png" alt="Home 881 Prediction" style="width: 500px;"/>
+<img src="figs/881.png" alt="Home 881 Prediction" style="width: 500px;"/>
 
 ## Replicate full analysis
 
