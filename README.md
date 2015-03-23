@@ -4,7 +4,7 @@ This repository provides `R` code to conduct spatial source prediction of dust s
 
 For more information, please see our associated publication:
 
-Grantham NS, Reich BJ, Pacifici K, Laber EB, Menninger HL, Henley JB, Barberan A, Leff JW, Fierer N, Dunn RR (2015) Fungi Identify the Geographic Origin of Dust Samples, _Accepted, PLoS ONE_.
+Grantham NS, Reich BJ, Pacifici K, Laber EB, Menninger HL, Henley JB, Barber&aacute;n A, Leff JW, Fierer N, Dunn RR (2015) Fungi Identify the Geographic Origin of Dust Samples, _Accepted, PLoS ONE_.
 
 <img src="figs/overview.tiff" alt="Overview" style="width: 500px;"/>
 
@@ -54,4 +54,4 @@ After `results.RData` is produced, `analyze-predictions.R` loads and analyzes th
 
 We would love to hear from you. If you wish to speak about the motivation, scope, and direction of this project, consider contacting our corresponding author Robert R. Dunn (`Rob_Dunn@ncsu.edu`).
 
-For questions regarding the specifics of the code provided here, please contact Neal S. Grantham (`ngranth@ncsu.edu`). If you would instead like to discuss the molecular sequencing methods and data provided at [1000homes figshare repository](http://figshare.com/articles/1000homes/1270900), please contact Albert Barberan (`albert.barberan@colorado.edu`).
+For questions regarding the specifics of the code provided here, please contact Neal S. Grantham (`ngranth@ncsu.edu`). If you would instead like to discuss the molecular sequencing methods and data provided at [1000homes figshare repository](http://figshare.com/articles/1000homes/1270900), please contact Albert Barber&aacute;n (`albert.barberan@colorado.edu`).
