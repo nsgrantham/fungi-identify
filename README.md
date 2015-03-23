@@ -35,7 +35,7 @@ __Note:__ The purpose of this file is to demonstrate the steps behind our predic
 
 ## Replicate full analysis
 
-The full analysis is conducted by `cross-validate.R`. It is recommended that this file be run on a server with many cores available. Make sure to set the number of available cores `ncore`. With the current size of the data (n = 1331 samples, m = fungi taxa), five-fold cross-validation across 10 cores required nearly 5 hours to complete. (Note: individual folds are _not_ run in parallel; rather, the species are split into `ncore` many groups to ensure the size of `M`, the kernel smoothed matrix of estimated occurrence probabilities, and `llike`, the log-likelihood values, are not prohibitively large.) 
+The full analysis is conducted by `cross-validate.R`. It is recommended that this file be run on a server with many cores available. Make sure to set the number of available cores `ncore`. With the current size of the data (n = 1331 samples, m = 57304 fungi taxa), five-fold cross-validation across 10 cores required nearly 5 hours to complete. (Note: individual folds are _not_ run in parallel; rather, the species are split into `ncore` many groups to ensure the size of `M`, the kernel smoothed matrix of estimated occurrence probabilities, and `llike`, the log-likelihood values, are not prohibitively large.) 
 
 This file produces `results.RData` containing `Tgrid`, a matrix of prediction points, and a list `results` of length `nfold`. Each element of `results` contains: 
 
