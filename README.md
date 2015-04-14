@@ -4,7 +4,7 @@ This repository provides `R` code to conduct spatial source prediction of dust s
 
 For more information, please see our associated publication:
 
-Grantham NS, Reich BJ, Pacifici K, Laber EB, Menninger HL, Henley JB, Barber&aacute;n A, Leff JW, Fierer N, Dunn RR (2015) Fungi Identify the Geographic Origin of Dust Samples, _Accepted, PLoS ONE_.
+[Grantham NS, Reich BJ, Pacifici K, Laber EB, Menninger HL, Henley JB, Barber&aacute;n A, Leff JW, Fierer N, Dunn RR (2015) Fungi Identify the Geographic Origin of Dust Samples, _PLOS ONE_](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0122605)
 
 <img src="figs/overview.tiff" alt="Overview" style="width: 500px;"/>
 
