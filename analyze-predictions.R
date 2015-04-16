@@ -66,7 +66,7 @@ calculate_coverage(pmf.test, q, Stest, Tgrid)  # fairly well
 rownames(Stest)  # valid homeIDs
 plot_prediction("1227", pmf.test, q, Stest, Stest.hat, Tgrid, save = TRUE)  # Figure 3
 # (worse performance here likely due to truncated geo coordinates and fold allocation of home 1227)
-plot_prediction("44", pmf.test, q, Stest, Stest.hat, Tgrid, save = TRUE)  # Figure 3
+plot_prediction("44", pmf.test, q, Stest, Stest.hat, Tgrid, save = TRUE)
 plot_prediction(c("515", "881"), pmf.test, q, Stest, Stest.hat, Tgrid, save = TRUE)
 plot_prediction(c("480", "331", "173"), pmf.test, q, Stest, Stest.hat, Tgrid, save = TRUE)
 
