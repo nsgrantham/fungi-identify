@@ -5,6 +5,12 @@
 
 # make sure you have run source("get-data.R") at least once!
 source("set-workspace.R")  # takes some time to load Y
+
+if (!file.exists("results.RData")) {
+  # Download results.RData locally if not in directory.
+  # File size is 92.8 MB
+  download.file("http://www4.ncsu.edu/~ngranth/results.RData", "results.RData", mode="wb")
+}
 load("results.RData")  # results from cross-validate.R
 
 # So... How did we do?

@@ -302,7 +302,7 @@ plot_all_predictions <- function(S, S.hat, save = FALSE, path = "figs") {
   p <- p + geom_line(aes(group = pair), alpha = 0.2)
   ## Add US states
   p <- p + geom_polygon(data = map_data("state"), aes(x = long, y = lat, group = group), 
-                        colour = "black", fill = "white", alpha = 0)
+                        colour = "black", fill = NA)
   ## Modify legend and axes
   p <- p + scale_colour_discrete(name="Origin", label=c("Predicted", "True")) # labels
   p <- p + scale_x_continuous(breaks = seq(-120, -70, by = 10))

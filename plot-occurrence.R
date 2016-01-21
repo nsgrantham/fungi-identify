@@ -6,10 +6,6 @@
 # make sure you have run source("get-data.R") at least once!
 source("set-workspace.R")  # takes some time to load Y
 
-# graphics packages
-library(ggplot2)
-library(RColorBrewer)
-
 # Possible kernel bandwidths (defined by rho in the accompanying manuscript)
 bw <- c(100, 200, 300, 400, 500, 1000, 10000)  
 
