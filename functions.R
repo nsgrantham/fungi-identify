@@ -200,7 +200,6 @@ plot_occurrence <- function(otu, tax, bw, Tgrid, save = FALSE, path = "figs/occu
   library(ggplot2)
   library(RColorBrewer)
   dir.create(path)
-  .e <- environment()
   otu.match <- sapply(otu, find_row, rownames(tax))
   otu <- otu[!is.na(otu.match)]
   otu.match <- otu.match[!is.na(otu.match)]
@@ -214,15 +213,15 @@ plot_occurrence <- function(otu, tax, bw, Tgrid, save = FALSE, path = "figs/occu
     samples <- cbind.data.frame(S, Y[, otu.match[j]])
     colnames(samples) <- c("lon", "lat", "present")
     color <- brewer.pal(9, "BuPu")[c(3, 9)]
-    p <- ggplot(data = shading, aes(x = lon, y = lat, fill = prob), environment = .e)
+    p <- ggplot(data = shading, aes(x = lon, y = lat, fill = prob))
     p <- p + geom_tile()
     p <- p + scale_fill_gradient(low = color[1], high = color[2], space = "Lab", 
                                  limits = c(0, 1), breaks = c(0.2, 0.4, 0.6, 0.8),
                                  name = "Occurence\nProbability")
     p <- p + geom_polygon(data = map_data("state"), aes(x = long, y = lat, group = group), 
-                          colour = "black", fill = "white", alpha = 0)
+                          colour = "black", fill = NA)
     p <- p + geom_point(data = samples, aes(x = lon, y = lat, shape = factor(1 - present), alpha = factor(present)), 
-                        size = 3, environment = .e, inherit.aes = FALSE)
+                        size = 3, inherit.aes = FALSE)
     p <- p + scale_shape_manual(values = c(1, 4), name = "Present?", labels = c("Yes", "No"))
     p <- p + scale_alpha_manual(values = c(0.5, 1), guide = FALSE)
     p <- p + guides(shape = guide_legend(order = 1))
@@ -260,7 +259,7 @@ plot_prediction <- function(homeID, pmf, q, S, S.hat, Tgrid, save = FALSE, path 
                                values = rev(rev(brewer.pal(9, "BuPu"))[1:length(q)]))
     ## Add US States
     p <- p + geom_polygon(data = map_data("state"), aes(x = long, y = lat, group = group), 
-                          colour = "black", fill = "white", alpha = 0)
+                          colour = "black", fill = NA)
     ## True and Predicted Origin
     points <- as.data.frame(rbind(S[home.match[i], ], S.hat[home.match[i], ]))
     colnames(points) <- c("lon", "lat")
