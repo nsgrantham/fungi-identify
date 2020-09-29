@@ -3,7 +3,9 @@
 .RData
 *.Rproj
 
-data/
+data/Y.csv
+data/tax.csv
+data/raw
 figs/occurrence
 figs/predictions
 results.RData

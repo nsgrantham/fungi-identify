@@ -10,7 +10,7 @@ dir.create("data")
 dir.create("data/raw")
 
 ## download homes txt file (200 Kb)
-download.file("http://files.figshare.com/1843184/homes_mapping_file.txt", "data/raw/homes_mapping_file.txt")
+download.file("https://ndownloader.figshare.com/files/3254927", "data/raw/homes_mapping_file.txt")
 
 ## download biom files (~70 Mb)
 # create a temporary directory
@@ -18,7 +18,7 @@ td <- tempdir()
 # create the placeholder file
 tf <- tempfile(tmpdir=td, fileext=".zip")
 # download into the placeholder file
-download.file("http://files.figshare.com/1843212/otu_tables_wTax.zip", tf)
+download.file("https://ndownloader.figshare.com/files/3254933", tf)
 # unzip the file to the raw directory
 unzip(tf, files = "ITS_otu_table_wTax.biom", exdir = "data/raw", overwrite = TRUE)
 # delete temp file
@@ -27,7 +27,7 @@ unlink(tf)
 ## download fa files (~5 Mb) 
 # (NOTE: These files are not necessary for the statistical analyses)
 tf <- tempfile(tmpdir=td, fileext=".zip")
-download.file("http://files.figshare.com/1845053/rep_set_numbered.zip", tf)
+download.file("https://ndownloader.figshare.com/files/3254954", tf)
 unzip(tf, files = "ITS_rep_set_numbered.fa", exdir = "data/raw", overwrite = TRUE)
 unlink(c(tf, td))
 rm(list = c("tf", "td"))
@@ -63,6 +63,12 @@ X <- X[, -which(colnames(X) %in% c("Longitude", "Latitude"))]
 
 #####  Y  #####
 
+# The biom package has not been updated in several years and was removed from CRAN.
+# Therefore, `install.packages("biom")` will not work. We must install an archived version.
+# biom depends on RJSONIO, so install it before we begin with `install.packages("RJSONIO")`
+# Next Go to https://cran.r-project.org/src/contrib/Archive/biom/ and download the biom_0.3.12.tar.gz.
+# Navigate to the directory containing biom_0.3.12.tar.gz in your terminal and run:
+# RMD CMD INSTALL biom_0.3.12.tar.gz.
 library(biom)
 fungi.biom <- read_biom("data/raw/ITS_otu_table_wTax.biom")
 
@@ -132,6 +138,12 @@ write.csv(S, "data/S.csv")
 write.csv(X, "data/X.csv")
 write.csv(Y, "data/Y.csv")
 write.csv(tax, "data/tax.csv")
+
+# in the interest of file size, share a versionof the data with
+# only the taxa that appear more than 100 samples
+is.prevalent <- colSums(Y) > 100
+write.csv(Y[, is.prevalent], "data/Y-reduced.csv")
+write.csv(tax[is.prevalent, ], "data/tax-reduced.csv")
 
 # and remove variables from workspace
 rm(list = ls())

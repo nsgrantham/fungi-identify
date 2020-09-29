@@ -34,8 +34,18 @@ reformat <- function(A, make.matrix = FALSE) {
 
 S <- reformat(read.csv("data/S.csv", header = TRUE), make.matrix = TRUE)
 X <- reformat(read.csv("data/X.csv", header = TRUE))
-Y <- reformat(read.csv("data/Y.csv", header = TRUE), make.matrix = TRUE)
-tax <- reformat(read.csv("data/tax.csv", header = TRUE))
+if (file.exists("data/Y.csv")) {
+  Y <- reformat(read.csv("data/Y.csv", header = TRUE), make.matrix = TRUE)
+} else {
+  warning("File `data/Y.csv` not found, using `data/Y-reduced.csv` instead. This is a smaller version of the OTU table with only 5k taxa rather the original 50k+. The code will run faster, but the model results will not match the results from the full data.")
+  Y <- reformat(read.csv("data/Y-reduced.csv", header = TRUE), make.matrix = TRUE)
+}
+if (file.exists("data/tax.csv")) {
+  tax <- reformat(read.csv("data/tax.csv", header = TRUE), make.matrix = TRUE)
+} else {
+  warning("File `data/tax.csv` not found, using `data/tax-reduced.csv` instead. This is a smaller version of the taxonomy table, with only 5k taxa rather the original 50k+. The code will run faster, but the model results will not match the results from the full data.")
+  tax <- reformat(read.csv("data/tax-reduced.csv", header = TRUE), make.matrix = TRUE)
+}
 
 rm(reformat)
 
